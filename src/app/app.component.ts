@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'pipesAPP';
+
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+  ngOnInit() {
+      this.primengConfig.ripple = true;
+  }
+
+
+
+
+  title = 'nicolas aLfredo Meola PINEDA';
 }

@@ -1,1 +1,77 @@
-<p>uncommon-page works!</p>
+<p-panel header="Piepes Basicos" class="p-1">
+    <p>Pipes incluidos en Angular - Usualmente en el common Module</p>
+</p-panel>
+
+
+<div class="grid">
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="i18nSelecte pipe" [toggleable]="true">
+            <P>Saludos {{name}}, es un Placer {{ gender | i18nSelect: invitationMap }}
+            </P>
+            <p-button (click)="changeClient()" label="Cambiar persona">
+
+            </p-button>
+        </p-fieldset>
+
+    </div>
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="i18nPlural pipe" [toggleable]="true">
+            <P>
+                Actualmente tenemos {{ clientes.length | i18nPlural:clientsMap}}
+            </P>
+            <p-button (click)="delectCliente()" label="Borrar Cliente">
+
+            </p-button>
+        </p-fieldset>
+
+
+    </div>
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="Slice pipe" [toggleable]="true">
+            <b> Original</b>
+            <pre> {{ clientes }}</pre>
+            <b> slice:0:2 </b>
+            <pre>{{ clientes | slice:0:2 }} </pre>
+
+            <b> slice:1:3 </b>
+            <pre>{{ clientes | slice:1:3 }} </pre>
+
+            <b> slice:1:2 </b>
+            <pre>{{ clientes | slice:1:2 }} </pre>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="Json pipe" [toggleable]="true">
+            <pre>
+                {{ person | json}}
+            </pre>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="KeyValue pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of person | keyvalue">
+                    <b>
+                        {{item.key | titlecase}}: </b> {{item.value}}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6 ">
+        <p-fieldset legend="Anync pipe" [toggleable]="true">
+            <pre>{{myObservableTimer | async }}</pre>
+
+
+        </p-fieldset>
+    </div>
+
+
+
+
+</div>
